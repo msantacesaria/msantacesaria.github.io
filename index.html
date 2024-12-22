@@ -82,35 +82,64 @@
         </section>
 
         <!-- Publications -->
-        <section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
-            <h2 class="text-3xl font-bold mb-6">Selected Publications</h2>
-            <div class="space-y-6">
-                <!-- Recent publications -->
-                <div class="border-l-4 border-blue-500 pl-4">
-                    <h3 class="text-xl font-semibold">Manifold Learning by Mixture Models of VAEs for Inverse Problems</h3>
-                    <p class="text-gray-700">Journal on Machine Learning Research, to appear</p>
-                    <p class="text-gray-600 text-sm">with G.S. Alberti, J. Hertrich and S. Sciutto</p>
-                </div>
-                <div class="border-l-4 border-blue-500 pl-4">
-                    <h3 class="text-xl font-semibold">Inverse problems on low-dimensional manifolds</h3>
-                    <p class="text-gray-700">Nonlinearity, 36(1) (2023), pp. 734-808</p>
-                    <p class="text-gray-600 text-sm">with G.S. Alberti and A. Arroyo</p>
-                </div>
-                <!-- Show More Publications Button -->
-                <button 
-                    id="more-pubs-btn"
-                    onclick="toggleSection('more-publications')" 
-                    class="mt-4 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 transition-colors"
-                >
-                    Show More ▼
-                </button>
-                <!-- Hidden Publications -->
-                <div id="more-publications" class="hidden space-y-6">
-                    <!-- Add more publications here -->
-                </div>
-            </div>
-        </section>
+        <!-- Publications -->
+<section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
+    <h2 class="text-3xl font-bold mb-6">Selected Publications</h2>
+    <div class="space-y-6">
+        <!-- Recent publications (always visible) -->
+        <div class="border-l-4 border-blue-500 pl-4">
+            <h3 class="text-xl font-semibold">Manifold Learning by Mixture Models of VAEs for Inverse Problems</h3>
+            <p class="text-gray-700">Journal on Machine Learning Research, to appear</p>
+            <p class="text-gray-600 text-sm">with G.S. Alberti, J. Hertrich and S. Sciutto</p>
+        </div>
+        <div class="border-l-4 border-blue-500 pl-4">
+            <h3 class="text-xl font-semibold">Inverse problems on low-dimensional manifolds</h3>
+            <p class="text-gray-700">Nonlinearity, 36(1) (2023), pp. 734-808</p>
+            <p class="text-gray-600 text-sm">with G.S. Alberti and A. Arroyo</p>
+        </div>
 
+        <!-- Show More Publications Button -->
+        <button 
+            id="more-pubs-btn"
+            onclick="toggleSection('more-publications')" 
+            class="mt-4 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 transition-colors"
+        >
+            Show More ▼
+        </button>
+
+        <!-- Hidden Publications -->
+        <div id="more-publications" class="hidden space-y-6">
+            <div class="border-l-4 border-blue-500 pl-4">
+                <h3 class="text-xl font-semibold">Market Areas in General Equilibrium</h3>
+                <p class="text-gray-700">Journal of Economic Theory, 211 (2023), 105675</p>
+                <p class="text-gray-600 text-sm">with G. Lanzara</p>
+            </div>
+            <div class="border-l-4 border-blue-500 pl-4">
+                <h3 class="text-xl font-semibold">Continuous Generative Neural Networks</h3>
+                <p class="text-gray-700">Numerical Functional Analysis and Optimization, to appear</p>
+                <p class="text-gray-600 text-sm">with G.S. Alberti and S. Sciutto</p>
+            </div>
+            <div class="border-l-4 border-blue-500 pl-4">
+                <h3 class="text-xl font-semibold">Localization of point scatterers via sparse optimization on measures</h3>
+                <p class="text-gray-700">SIAM Journal on Imaging Sciences, to appear</p>
+                <p class="text-gray-600 text-sm">with G.S. Alberti and R. Petit</p>
+            </div>
+            <div class="border-l-4 border-blue-500 pl-4">
+                <h3 class="text-xl font-semibold">Learning the optimal Tikhonov regularizer for inverse problems</h3>
+                <p class="text-gray-700">Advances in Neural Information Processing Systems, 34 (2021)</p>
+                <p class="text-gray-600 text-sm">with G.S. Alberti, E. De Vito, M. Lassas and L. Ratti</p>
+            </div>
+        </div>
+
+        <!-- View All Publications Button -->
+        <a 
+            href="publications.html" 
+            class="mt-6 inline-block px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition-colors"
+        >
+            View Complete Publication List
+        </a>
+    </div>
+    </section>
         <!-- Teaching -->
         <section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
             <h2 class="text-3xl font-bold mb-6">Teaching</h2>

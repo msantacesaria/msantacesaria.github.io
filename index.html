@@ -5,36 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matteo Santacesaria - Mathematical Analysis</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            const button = document.getElementById(sectionId + '-btn');
-            if (section.classList.contains('hidden')) {
-                section.classList.remove('hidden');
-                button.innerHTML = 'Show Less ▲';
-            } else {
-                section.classList.add('hidden');
-                button.innerHTML = 'Show More ▼';
-            }
-        }
-    </script>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation stays the same -->
+<body>
     <nav class="bg-white shadow-sm fixed w-full z-50">
-        <!-- Your existing nav code -->
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-semibold">Matteo Santacesaria</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#home" class="px-3 py-2 text-gray-700 hover:text-gray-900">Home</a>
+                    <a href="#research" class="px-3 py-2 text-gray-700 hover:text-gray-900">Research</a>
+                    <a href="#publications" class="px-3 py-2 text-gray-700 hover:text-gray-900">Publications</a>
+                    <a href="#teaching" class="px-3 py-2 text-gray-700 hover:text-gray-900">Teaching</a>
+                    <a href="#contact" class="px-3 py-2 text-gray-700 hover:text-gray-900">Contact</a>
+                </div>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero Section stays the same -->
+    <!-- Hero Section -->
     <div class="relative h-96 bg-gray-900">
-        <!-- Your existing hero code -->
+        <img src="images/mountain.jpg" alt="Mountains panorama" class="w-full h-full object-cover opacity-80">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
+                    Matteo Santacesaria
+                </h1>
+                <p class="mt-3 text-xl text-white">
+                    Associate Professor in Mathematical Analysis
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 py-12">
-        <!-- About Section -->
-        <section class="grid md:grid-cols-3 gap-8 mb-16 bg-white p-8 rounded-lg shadow-sm">
-            <!-- Your existing about section -->
+        <section class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="md:col-span-1">
+                <img src="images/profile.jpg" alt="Profile" class="rounded-lg shadow-lg w-full">
+            </div>
+            <div class="md:col-span-2">
+                <h2 class="text-3xl font-bold mb-4">About</h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    I am an Associate Professor in Mathematical Analysis at the Department of Mathematics, 
+                    University of Genoa and P.I. at MaLGa - Machine Learning Genoa Center.
+                </p>
+                <div class="space-y-2">
+                    <h3 class="text-xl font-semibold mb-2">Research Interests:</h3>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Calderón's inverse conductivity problem</li>
+                        <li>Photoacoustic imaging</li>
+                        <li>Compressed sensing</li>
+                        <li>Generative models for inverse problems</li>
+                        <li>Learning regularizers and infinite dimensional operators</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- Current Projects -->
@@ -146,5 +173,8 @@
             <p class="text-center text-gray-400">© 2024 Matteo Santacesaria</p>
         </div>
     </footer>
+        
+    
+    
 </body>
 </html>

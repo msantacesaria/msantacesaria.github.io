@@ -82,64 +82,37 @@
         </section>
 
         <!-- Publications -->
-        <!-- Publications -->
+<!-- Publications Section with Google Scholar Integration -->
 <section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
-    <h2 class="text-3xl font-bold mb-6">Selected Publications</h2>
-    <div class="space-y-6">
-        <!-- Recent publications (always visible) -->
-        <div class="border-l-4 border-blue-500 pl-4">
-            <h3 class="text-xl font-semibold">Manifold Learning by Mixture Models of VAEs for Inverse Problems</h3>
-            <p class="text-gray-700">Journal on Machine Learning Research, to appear</p>
-            <p class="text-gray-600 text-sm">with G.S. Alberti, J. Hertrich and S. Sciutto</p>
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-bold">Publications</h2>
+        <div class="text-gray-600">
+            <span class="mr-4">Citations: 576</span>
+            <span>h-index: 16</span>
         </div>
-        <div class="border-l-4 border-blue-500 pl-4">
-            <h3 class="text-xl font-semibold">Inverse problems on low-dimensional manifolds</h3>
-            <p class="text-gray-700">Nonlinearity, 36(1) (2023), pp. 734-808</p>
-            <p class="text-gray-600 text-sm">with G.S. Alberti and A. Arroyo</p>
-        </div>
+    </div>
+    
+    <!-- Google Scholar Embed -->
+    <div class="mb-8 overflow-hidden">
+        <iframe
+            src="https://scholar.google.com/citations?user=iVlCw_gAAAAJ&hl=en&cstart=0&pagesize=20&sortby=pubdate&view_op=list_works&output=embed"
+            style="width: 100%; height: 800px; border: none;"
+        ></iframe>
+    </div>
 
-        <!-- Show More Publications Button -->
-        <button 
-            id="more-pubs-btn"
-            onclick="toggleSection('more-publications')" 
-            class="mt-4 px-4 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 transition-colors"
-        >
-            Show More ▼
-        </button>
-
-        <!-- Hidden Publications -->
-        <div id="more-publications" class="hidden space-y-6">
-            <div class="border-l-4 border-blue-500 pl-4">
-                <h3 class="text-xl font-semibold">Market Areas in General Equilibrium</h3>
-                <p class="text-gray-700">Journal of Economic Theory, 211 (2023), 105675</p>
-                <p class="text-gray-600 text-sm">with G. Lanzara</p>
-            </div>
-            <div class="border-l-4 border-blue-500 pl-4">
-                <h3 class="text-xl font-semibold">Continuous Generative Neural Networks</h3>
-                <p class="text-gray-700">Numerical Functional Analysis and Optimization, to appear</p>
-                <p class="text-gray-600 text-sm">with G.S. Alberti and S. Sciutto</p>
-            </div>
-            <div class="border-l-4 border-blue-500 pl-4">
-                <h3 class="text-xl font-semibold">Localization of point scatterers via sparse optimization on measures</h3>
-                <p class="text-gray-700">SIAM Journal on Imaging Sciences, to appear</p>
-                <p class="text-gray-600 text-sm">with G.S. Alberti and R. Petit</p>
-            </div>
-            <div class="border-l-4 border-blue-500 pl-4">
-                <h3 class="text-xl font-semibold">Learning the optimal Tikhonov regularizer for inverse problems</h3>
-                <p class="text-gray-700">Advances in Neural Information Processing Systems, 34 (2021)</p>
-                <p class="text-gray-600 text-sm">with G.S. Alberti, E. De Vito, M. Lassas and L. Ratti</p>
-            </div>
-        </div>
-
-        <!-- View All Publications Button -->
+    <!-- Direct Google Scholar Link -->
+    <div class="text-center">
         <a 
-            href="publications.html" 
-            class="mt-6 inline-block px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition-colors"
+            href="https://scholar.google.com/citations?user=iVlCw_gAAAAJ&hl=en" 
+            target="_blank"
+            class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
-            View Complete Publication List
+            View Complete Profile on Google Scholar
         </a>
     </div>
-    </section>
+</section>
+
+        
         <!-- Teaching -->
         <section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
             <h2 class="text-3xl font-bold mb-6">Teaching</h2>

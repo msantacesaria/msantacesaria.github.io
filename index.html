@@ -24,9 +24,9 @@ document.documentElement.setAttribute("data-theme",d);})();
   --serif:"Source Serif 4",Georgia,serif; --display:Oswald,"Arial Narrow",sans-serif; --gold:#a8771c; --gold-soft:#f6eedd; --teal:#1d7a72; --teal-soft:#e2f1ef; --sans:"Open Sans",system-ui,-apple-system,sans-serif;
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme=light]){--bg:#121417; --surface:#1a1d21; --text:#e7e9ec; --muted:#9aa3ad; --line:#2b3036; --accent:#86b6e6; --accent-soft:#1d2a38; --tag:#22262b; --gold:#e0b45e; --gold-soft:#2e2718; --teal:#6cc7bd; --teal-soft:#16292a; color-scheme:dark;}
+  :root:not([data-theme=light]){--bg:#131c27; --surface:#1a2533; --text:#ece6da; --muted:#a3abb4; --line:#2a3646; --accent:#a9cbe6; --accent-soft:#1f3044; --tag:#1f2a38; --gold:#d9b26a; --gold-soft:#2d2a22; --teal:#8fcfc6; --teal-soft:#183033; color-scheme:dark;}
 }
-:root[data-theme=dark]{--bg:#121417; --surface:#1a1d21; --text:#e7e9ec; --muted:#9aa3ad; --line:#2b3036; --accent:#86b6e6; --accent-soft:#1d2a38; --tag:#22262b; --gold:#e0b45e; --gold-soft:#2e2718; --teal:#6cc7bd; --teal-soft:#16292a; color-scheme:dark;}
+:root[data-theme=dark]{--bg:#131c27; --surface:#1a2533; --text:#ece6da; --muted:#a3abb4; --line:#2a3646; --accent:#a9cbe6; --accent-soft:#1f3044; --tag:#1f2a38; --gold:#d9b26a; --gold-soft:#2d2a22; --teal:#8fcfc6; --teal-soft:#183033; color-scheme:dark;}
 .theme-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin-left:18px;border:1px solid var(--line);border-radius:2px;background:var(--surface);color:var(--muted);cursor:pointer}
 .theme-btn:hover{color:var(--text);border-color:var(--accent)}
 .theme-btn svg{width:17px;height:17px}
@@ -151,6 +151,24 @@ footer::before{content:"";position:absolute;inset:0;background:linear-gradient(1
 footer .wrap{position:relative}
 footer a{color:#fff;text-decoration:underline}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* alpine night: dark-mode details */
+:root[data-theme=dark] .banner{background-color:#0d1520}
+:root[data-theme=dark] .banner::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,48,.55),rgba(14,26,48,.35));mix-blend-mode:multiply}
+:root[data-theme=dark] .banner::after{background:linear-gradient(180deg,rgba(8,14,24,.15) 20%,rgba(19,28,39,.92) 100%)}
+:root[data-theme=dark] .banner h1{color:#f4efe4}
+:root[data-theme=dark] .hero img{box-shadow:0 12px 34px rgba(0,0,0,.45)}
+:root[data-theme=dark] .card{border-top-color:var(--gold)}
+:root[data-theme=dark] .card .num{color:var(--gold)}
+:root[data-theme=dark] .card:hover{box-shadow:0 10px 26px rgba(0,0,0,.35)}
+:root[data-theme=dark] h2::after{background:linear-gradient(90deg,var(--gold),transparent);opacity:.45}
+:root[data-theme=dark] .year{color:var(--gold)}
+:root[data-theme=dark] .links a.primary{background:var(--gold);border-color:var(--gold);color:#1a1408}
+:root[data-theme=dark] .chip[aria-pressed=true]{background:var(--accent);color:#0f1823}
+:root[data-theme=dark] .bio{border-left-color:var(--gold)}
+:root[data-theme=dark] .bio .lbl{color:var(--gold)}
+:root[data-theme=dark] footer{background-color:#0d1520}
+:root[data-theme=dark] footer::before{background:linear-gradient(180deg,var(--bg) 0%,rgba(14,26,48,.6) 45%,rgba(8,14,24,.85) 100%)}
 </style>
 </head>
 <body>
@@ -186,7 +204,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="hero">
     <img src="images/profile-640.jpg" alt="Portrait of Matteo Santacesaria" width="240" height="240">
     <div class="text">
-      <p class="role">Associate Professor of Mathematical Analysis, <a href="https://www2.dima.unige.it/">Department of Mathematics</a>, <a href="https://unige.it/">University of Genoa</a><br>Principal Investigator at <a href="https://ml.unige.it/">MaLGa – Machine Learning Genoa Center</a></p>
+      <p class="role">Associate Professor of Mathematical Analysis, <a href="https://dima.unige.it/">Department of Mathematics</a>, <a href="https://unige.it/">University of Genoa</a><br>Principal Investigator at <a href="https://ml.unige.it/">MaLGa – Machine Learning Genoa Center</a></p>
       <p>I work on <strong>inverse problems for partial differential equations</strong> and on the mathematics of <strong>machine learning for imaging</strong>. My research ranges from uniqueness and stability for Calderón-type problems to generative models, learned regularizers and operator learning, with applications to medical imaging and physical sciences.</p>
       <div class="links">
         <a href="https://scholar.google.com/citations?user=iVlCw_gAAAAJ"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.6V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.4L12 16l-6-3.4z"/></svg>Google Scholar</a>

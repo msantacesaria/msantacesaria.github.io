@@ -69,7 +69,9 @@ nav a:hover{color:var(--text);text-decoration:none}
 .banner .sub{color:rgba(255,255,255,.92);font-size:1.02rem;margin-top:8px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
 /* intro */
 .hero{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start;padding:0 0 44px}
-.hero img{width:240px;height:240px;object-fit:cover;border-radius:2px;margin-top:-130px;position:relative;z-index:2;border:6px solid var(--bg);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.photo{position:relative;z-index:2;width:240px;height:240px;margin-top:-130px}
+.photo::before{content:"";position:absolute;inset:-12px 14px 14px -12px;background:var(--accent);transform:rotate(-5deg);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.photo img{position:relative;display:block;width:100%;height:100%;object-fit:cover;border:5px solid var(--bg);box-sizing:border-box}
 .hero .text{padding-top:30px}
 .role{color:var(--muted);font-size:1.02rem;margin:0 0 18px}
 .hero p{margin:0 0 14px}
@@ -83,7 +85,9 @@ nav a:hover{color:var(--text);text-decoration:none}
   .banner .wrap{padding-left:24px;padding-bottom:66px}
   .banner .sub{font-size:.92rem}
   .hero{grid-template-columns:1fr;gap:0}
-  .hero img{width:140px;height:140px;margin-top:-50px;border-width:4px}
+  .photo{width:140px;height:140px;margin-top:-50px;margin-left:8px}
+  .photo::before{inset:-8px 9px 9px -8px}
+  .photo img{border-width:4px}
   .hero .text{padding-top:16px}
   .banner{height:260px}
 }
@@ -157,7 +161,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 :root[data-theme=dark] .banner::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,48,.55),rgba(14,26,48,.35));mix-blend-mode:multiply}
 :root[data-theme=dark] .banner::after{background:linear-gradient(180deg,rgba(8,14,24,.15) 20%,rgba(19,28,39,.92) 100%)}
 :root[data-theme=dark] .banner h1{color:#f4efe4}
-:root[data-theme=dark] .hero img{box-shadow:0 12px 34px rgba(0,0,0,.45)}
+:root[data-theme=dark] .photo::before{background:var(--gold);box-shadow:0 12px 34px rgba(0,0,0,.45)}
 :root[data-theme=dark] .card{border-top-color:var(--gold)}
 :root[data-theme=dark] .card .num{color:var(--gold)}
 :root[data-theme=dark] .card:hover{box-shadow:0 10px 26px rgba(0,0,0,.35)}
@@ -202,7 +206,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <main class="wrap">
 
   <div class="hero">
-    <img src="images/profile-640.jpg" alt="Portrait of Matteo Santacesaria" width="240" height="240">
+    <div class="photo"><img src="images/profile-640.jpg" alt="Portrait of Matteo Santacesaria" width="240" height="240"></div>
     <div class="text">
       <p class="role">Associate Professor of Mathematical Analysis, <a href="https://dima.unige.it/">Department of Mathematics</a>, <a href="https://unige.it/">University of Genoa</a><br>Principal Investigator at <a href="https://ml.unige.it/">MaLGa – Machine Learning Genoa Center</a></p>
       <p>I work on <strong>inverse problems for partial differential equations</strong> and on the mathematics of <strong>machine learning for imaging</strong>. My research ranges from uniqueness and stability for Calderón-type problems to generative models, learned regularizers and operator learning, with applications to medical imaging and physical sciences.</p>

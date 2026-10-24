@@ -1,182 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matteo Santacesaria - Mathematical Analysis</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matteo Santacesaria · Applied Mathematics, University of Genoa</title>
+<meta name="description" content="Matteo Santacesaria, Associate Professor of Mathematical Analysis at the University of Genoa and PI at MaLGa. Inverse problems for PDEs, generative models, and machine learning for imaging.">
+<meta property="og:title" content="Matteo Santacesaria">
+<meta property="og:description" content="Inverse problems, PDEs and machine learning · University of Genoa & MaLGa">
+<meta property="og:image" content="images/profile.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d3b5c'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='white' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfaf7; --surface:#ffffff; --text:#1c1f24; --muted:#5d6570; --line:#e6e2da;
+  --accent:#1d4e7e; --accent-soft:#e8eff6; --tag:#f1eee7;
+  --serif:"Source Serif 4",Georgia,serif; --sans:Inter,system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#121417; --surface:#1a1d21; --text:#e7e9ec; --muted:#9aa3ad; --line:#2b3036;
+        --accent:#86b6e6; --accent-soft:#1d2a38; --tag:#22262b;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+.wrap{max-width:940px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--text)}
+.brand:hover{text-decoration:none}
+nav a{color:var(--muted);font-size:.92rem;font-weight:500;margin-left:22px}
+nav a:hover{color:var(--text);text-decoration:none}
+@media (max-width:680px){nav{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:220px 1fr;gap:44px;align-items:start;padding:64px 0 40px}
+.hero img{width:220px;height:260px;object-fit:cover;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+h1{font-family:var(--serif);font-weight:600;font-size:2.5rem;line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
+.role{color:var(--muted);font-size:1.02rem;margin:0 0 20px}
+.hero p{margin:0 0 14px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.links a{display:inline-flex;align-items:center;gap:6px;font-size:.86rem;font-weight:500;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text)}
+.links a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+.links svg{width:15px;height:15px}
+@media (max-width:680px){
+  .hero{grid-template-columns:1fr;gap:24px;padding-top:36px}
+  .hero img{width:150px;height:180px}
+  h1{font-size:2rem}
+}
+
+/* sections */
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--serif);font-weight:600;font-size:1.6rem;margin:0 0 22px}
+h3{font-size:1rem;font-weight:600;margin:0 0 6px}
+
+/* news */
+.news{list-style:none;margin:0;padding:0}
+.news li{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.news li:last-child{border-bottom:0}
+.news time{color:var(--muted);font-size:.88rem;font-variant-numeric:tabular-nums;padding-top:2px}
+.badge{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent);padding:2px 8px;border-radius:6px;margin-right:6px;vertical-align:1px}
+
+/* research */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.card p{margin:0;color:var(--muted);font-size:.94rem}
+.card .refs{margin-top:10px;font-size:.84rem}
+@media (max-width:680px){.grid{grid-template-columns:1fr}}
+.aside{margin-top:18px;color:var(--muted);font-size:.93rem}
+.video{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.video iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px}
+@media (max-width:680px){.video{grid-template-columns:1fr}}
+
+/* publications */
+.pubbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
+.pubbar input{flex:1;min-width:200px;font:inherit;font-size:.92rem;padding:9px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
+.pubbar input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.chip{font:inherit;font-size:.84rem;font-weight:500;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.year{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--muted);margin:26px 0 8px}
+.pub{padding:10px 0 10px 14px;border-left:2px solid var(--line);margin-bottom:6px}
+.pub:hover{border-left-color:var(--accent)}
+.pub .t{font-weight:600;font-size:.97rem;line-height:1.4}
+.pub .a{font-size:.88rem;color:var(--muted)}
+.pub .a b{color:var(--text);font-weight:600}
+.pub .j{font-size:.86rem;font-style:italic;font-family:var(--serif)}
+.pub .j.pre{font-style:normal;font-family:var(--sans);color:var(--muted)}
+.pub .l{font-size:.8rem;margin-left:6px}
+.count{color:var(--muted);font-size:.86rem}
+
+/* cv */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:9px 0}
+.timeline .when{color:var(--muted);font-size:.88rem;font-variant-numeric:tabular-nums;padding-top:1px}
+.timeline .where{color:var(--muted);font-size:.9rem}
+@media (max-width:680px){.timeline li,.news li{grid-template-columns:1fr;gap:2px}}
+.cvlink{margin-top:20px}
+
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:.86rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
 </head>
 <body>
-    <nav class="bg-white shadow-sm fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-xl font-semibold">Matteo Santacesaria</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="#home" class="px-3 py-2 text-gray-700 hover:text-gray-900">Home</a>
-                    <a href="#research" class="px-3 py-2 text-gray-700 hover:text-gray-900">Research</a>
-                    <a href="#publications" class="px-3 py-2 text-gray-700 hover:text-gray-900">Publications</a>
-                    <a href="#teaching" class="px-3 py-2 text-gray-700 hover:text-gray-900">Teaching</a>
-                    <a href="#contact" class="px-3 py-2 text-gray-700 hover:text-gray-900">Contact</a>
-                </div>
-            </div>
-        </div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#">Matteo Santacesaria</a>
+    <nav>
+      <a href="#news">News</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <div class="relative h-96 bg-gray-900">
-        <img src="images/mountain.jpg" alt="Mountains panorama" class="w-full h-full object-cover opacity-80">
-        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <div class="text-center">
-                <h1 class="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
-                    Matteo Santacesaria
-                </h1>
-                <p class="mt-3 text-xl text-white">
-                    Associate Professor in Mathematical Analysis
-                </p>
-            </div>
-        </div>
+<main class="wrap">
+
+  <div class="hero">
+    <img src="images/profile.jpg" alt="Portrait of Matteo Santacesaria">
+    <div>
+      <h1>Matteo Santacesaria</h1>
+      <p class="role">Associate Professor of Mathematical Analysis · University of Genoa<br>Principal Investigator at <a href="https://ml.unige.it/">MaLGa – Machine Learning Genoa Center</a></p>
+      <p>I work on <strong>inverse problems for partial differential equations</strong> and on the mathematics of <strong>machine learning for imaging</strong>. My research ranges from uniqueness and stability for Calderón-type problems to generative models, learned regularizers and operator learning, with applications to medical imaging and physical sciences.</p>
+      <p>I am a member of the <a href="https://www2.dima.unige.it/">Department of Mathematics</a> of the <a href="https://unige.it/">University of Genoa</a> and of the Scientific and Technical Committee of the national research group <a href="https://sites.google.com/view/gruppo-umi-miva-en">Mathematics for Imaging, Vision and their Applications (MIVA)</a>.</p>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=iVlCw_gAAAAJ"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.6V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.4L12 16l-6-3.4z"/></svg>Google Scholar</a>
+        <a href="https://arxiv.org/a/santacesaria_m_1.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>arXiv</a>
+        <a href="https://www.researchgate.net/profile/Matteo_Santacesaria"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 8v8M9 8h3a2 2 0 0 1 0 4H9m3 0 3 4"/></svg>ResearchGate</a>
+        <a href="https://drive.google.com/file/d/1NUlQJoTBnNCucfbMVr0pYn5Ru0ZmUr7q/view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>Full CV (PDF)</a>
+        <a href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+      </div>
     </div>
+  </div>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-12">
-        <section class="grid md:grid-cols-3 gap-8 mb-16">
-            <div class="md:col-span-1">
-                <img src="images/profile.jpg" alt="Profile" class="rounded-lg shadow-lg w-full">
-            </div>
-            <div class="md:col-span-2">
-                <h2 class="text-3xl font-bold mb-4">About</h2>
-                <p class="text-lg text-gray-700 mb-4">
-                    I am an Associate Professor in Mathematical Analysis at the Department of Mathematics, 
-                    University of Genoa and P.I. at MaLGa - Machine Learning Genoa Center.
-                </p>
-                <div class="space-y-2">
-                    <h3 class="text-xl font-semibold mb-2">Research Interests:</h3>
-                    <ul class="list-disc list-inside space-y-1 text-gray-700">
-                        <li>Calderón's inverse conductivity problem</li>
-                        <li>Photoacoustic imaging</li>
-                        <li>Compressed sensing</li>
-                        <li>Generative models for inverse problems</li>
-                        <li>Learning regularizers and infinite dimensional operators</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <li><time>2026</time><div><span class="badge">Award</span>I received the <strong>EAIP Young Scientist Award</strong> of the Eurasian Association on Inverse Problems.</div></li>
+      <li><time>2026</time><div><span class="badge">Paper</span><a href="https://arxiv.org/abs/2509.24710">MAD: Manifold Attracted Diffusion</a> (with D. Elbrächter and G. S. Alberti) was accepted at <strong>ICML 2026</strong>.</div></li>
+      <li><time>2026</time><div><span class="badge">Preprint</span><a href="https://arxiv.org/abs/2607.27062">PIKS: Universal Physics-Informed Kernel Methods</a>, joint work with J. Bona-Pellissier, G. Meanti and L. Rosasco.</div></li>
+      <li><time>Mar 2025</time><div><span class="badge">Talk</span>Public talk on my research, in Italian with subtitles. <a href="#talk">Watch it below.</a></div></li>
+      <li><time>Oct 2024</time><div><span class="badge">Position</span>I became Associate Professor at the University of Genoa.</div></li>
+    </ul>
+  </section>
 
-        <!-- Current Projects -->
-        <section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
-            <h2 class="text-3xl font-bold mb-6">Current Projects</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold mb-3">Generative Models for Inverse Problems</h3>
-                    <p class="text-gray-700 mb-2">AFOSR Grant FA8655-23-1-7083</p>
-                    <p class="text-gray-600">Principal Investigator • 2023-2026</p>
-                </div>
-                <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold mb-3">Next Generation EIT</h3>
-                    <p class="text-gray-700 mb-2">PRIN PNRR 2022, Grant P2022XT498</p>
-                    <p class="text-gray-600">Co-PI • 2023-2025</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Publications -->
-<!-- Publications Section with Google Scholar Integration -->
-<section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="text-3xl font-bold">Publications</h2>
-        <div class="text-gray-600">
-            <span class="mr-4">Citations: 576</span>
-            <span>h-index: 16</span>
-        </div>
+  <section id="research">
+    <h2>Research</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Inverse problems for PDEs</h3>
+        <p>Uniqueness, stability and reconstruction for Calderón's inverse conductivity problem and related problems, including electrical impedance tomography, recovery from finitely many measurements, and models of electrolysers.</p>
+        <div class="refs"><a href="https://arxiv.org/abs/1906.10028">ARMA 2021</a> · <a href="https://arxiv.org/abs/1803.04224">Forum Math. Sigma 2019</a> · <a href="https://arxiv.org/abs/1610.01721">Anal. PDE 2018</a></div>
+      </div>
+      <div class="card">
+        <h3>Generative models for inverse problems</h3>
+        <p>Diffusion and flow-based priors, manifold-aware sampling and generative models in infinite dimensions, applied to posterior sampling, EIT and MRI.</p>
+        <div class="refs"><a href="https://arxiv.org/abs/2509.24710">ICML 2026</a> · <a href="https://arxiv.org/abs/2303.15244">JMLR 2024</a> · <a href="https://arxiv.org/abs/2603.03196">preprint 2026</a></div>
+      </div>
+      <div class="card">
+        <h3>Learning regularizers &amp; operators</h3>
+        <p>Statistical learning theory for regularization functionals, sparsity-promoting priors, and physics-informed kernel methods for learning operators between function spaces.</p>
+        <div class="refs"><a href="https://arxiv.org/abs/2106.06513">NeurIPS 2021</a> · <a href="https://arxiv.org/abs/2412.16031">SIMODS 2026</a> · <a href="https://arxiv.org/abs/2607.27062">PIKS 2026</a></div>
+      </div>
+      <div class="card">
+        <h3>Compressed sensing &amp; imaging</h3>
+        <p>Infinite-dimensional compressed sensing for inverse problems, with applications to photoacoustic tomography, the sparse Radon transform, deconvolution and MRI.</p>
+        <div class="refs"><a href="https://arxiv.org/abs/2302.03577">JEMS 2025</a> · <a href="https://arxiv.org/abs/2010.08388">SIIMS 2021</a> · <a href="https://arxiv.org/abs/1710.11093">ACHA 2021</a></div>
+      </div>
     </div>
-    
-    <!-- Google Scholar Embed -->
-    <div class="mb-8 overflow-hidden">
-        <iframe
-            src="https://scholar.google.com/citations?user=iVlCw_gAAAAJ&hl=en&cstart=0&pagesize=20&sortby=pubdate&view_op=list_works&output=embed"
-            style="width: 100%; height: 800px; border: none;"
-        ></iframe>
+    <p class="aside">I have also worked on complex and hypercomplex analysis and on theoretical economic geography, including <a href="https://arxiv.org/abs/2110.15849">market areas in general equilibrium</a>.</p>
+
+    <div class="video" id="talk">
+      <iframe src="https://www.youtube-nocookie.com/embed/EBTW6lHzHAU" title="Popularization talk by Matteo Santacesaria" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <div>
+        <h3>Public talk (March 2025)</h3>
+        <p style="color:var(--muted);margin:0">An introduction to my research for a general audience, in Italian with subtitles.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Direct Google Scholar Link -->
-    <div class="text-center">
-        <a 
-            href="https://scholar.google.com/citations?user=iVlCw_gAAAAJ&hl=en" 
-            target="_blank"
-            class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-        >
-            View Complete Profile on Google Scholar
-        </a>
+  <section id="publications">
+    <h2>Publications &amp; preprints</h2>
+    <div class="pubbar">
+      <input id="q" type="search" placeholder="Search by title, author or venue…" aria-label="Search publications">
+      <button class="chip" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" data-f="pub" aria-pressed="false">Published</button>
+      <button class="chip" data-f="pre" aria-pressed="false">Preprints</button>
     </div>
-</section>
+    <div class="count" id="count"></div>
+    <div id="publist"></div>
+    <p class="aside">Listed by year of first arXiv version. For the full record see <a href="https://scholar.google.com/citations?user=iVlCw_gAAAAJ">Google Scholar</a>.</p>
+  </section>
 
-        
-        <!-- Teaching -->
-        <section class="mb-16 bg-white p-8 rounded-lg shadow-sm">
-            <h2 class="text-3xl font-bold mb-6">Teaching</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="border border-gray-200 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-3">Current Courses</h3>
-                    <ul class="space-y-4">
-                        <li>
-                            <div class="font-medium">Analisi Matematica 1</div>
-                            <div class="text-gray-600">BSc course • 60h</div>
-                        </li>
-                        <li>
-                            <div class="font-medium">Analisi Matematica 4</div>
-                            <div class="text-gray-600">MSc course • 60h</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="border border-gray-200 rounded-lg p-6">
-                    <h3 class="text-xl font-semibold mb-3">Past Courses</h3>
-                    <ul class="space-y-4">
-                        <li>
-                            <div class="font-medium">Machine Learning for Inverse Problems</div>
-                            <div class="text-gray-600">PhD course • 2020-2021</div>
-                        </li>
-                        <li>
-                            <div class="font-medium">Partial Differential Equations</div>
-                            <div class="text-gray-600">MSc course • 2019-2021</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+  <section id="cv">
+    <h2>Short CV</h2>
+    <ul class="timeline">
+      <li><span class="when">2024 – present</span><div><strong>Associate Professor</strong><div class="where">Department of Mathematics, University of Genoa, Italy</div></div></li>
+      <li><span class="when">2021 – 2024</span><div><strong>Assistant Professor (RTD-B)</strong><div class="where">Department of Mathematics, University of Genoa, Italy</div></div></li>
+      <li><span class="when">2018 – 2021</span><div><strong>Assistant Professor (RTD-A)</strong><div class="where">Department of Mathematics, University of Genoa, Italy</div></div></li>
+      <li><span class="when">2017 – 2018</span><div><strong>Postdoctoral researcher</strong><div class="where">Department of Mathematics and Statistics, University of Helsinki, Finland</div></div></li>
+      <li><span class="when">2015 – 2017</span><div><strong>Polimi International Fellow</strong><div class="where">Dipartimento di Matematica, Politecnico di Milano, Italy</div></div></li>
+      <li><span class="when">2014 – 2015</span><div><strong>Postdoctoral researcher</strong><div class="where">Department of Mathematics and Statistics, University of Helsinki, Finland</div></div></li>
+      <li><span class="when">2013 – 2014</span><div><strong>Postdoctoral researcher</strong><div class="where">Laboratoire Jean Kuntzmann, Université Grenoble Alpes, France</div></div></li>
+      <li><span class="when">2010 – 2013</span><div><strong>PhD, Gaspard Monge Fellow</strong><div class="where">Centre de Mathématiques Appliquées, École Polytechnique, France</div></div></li>
+    </ul>
+    <p class="cvlink"><a href="https://drive.google.com/file/d/1NUlQJoTBnNCucfbMVr0pYn5Ru0ZmUr7q/view">Download the full CV (PDF) →</a></p>
+  </section>
 
-        <!-- Contact -->
-        <section class="bg-white p-8 rounded-lg shadow-sm">
-            <h2 class="text-3xl font-bold mb-6">Contact</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Address</h3>
-                    <p class="text-gray-700">Department of Mathematics</p>
-                    <p class="text-gray-700">University of Genoa</p>
-                    <p class="text-gray-700">Via Dodecaneso 35</p>
-                    <p class="text-gray-700">16146 Genova, Italy</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Links</h3>
-                    <div class="space-y-2">
-                        <a href="https://scholar.google.com" class="text-blue-600 hover:text-blue-800 block">Google Scholar</a>
-                        <a href="https://www.researchgate.net" class="text-blue-600 hover:text-blue-800 block">ResearchGate</a>
-                        <a href="https://arxiv.org" class="text-blue-600 hover:text-blue-800 block">arXiv Papers</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="margin:0 0 6px">Email: <a id="mail" href="#">matteo (dot) santacesaria (at) unige (dot) it</a></p>
+    <p style="margin:0 0 6px">MaLGa, Department of Mathematics, University of Genoa, Italy</p>
+    <p class="aside" style="margin-top:14px">I also write, about things other than work, on <a href="https://matteosantacesaria.substack.com/">Substack</a>.</p>
+  </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-12">
-        <div class="max-w-7xl mx-auto px-4 py-12">
-            <p class="text-center text-gray-400">© 2024 Matteo Santacesaria</p>
-        </div>
-    </footer>
-        
-    
-    
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Matteo Santacesaria</span>
+    <span>Last updated October 2026</span>
+  </div>
+</footer>
+
+<script>
+const PUBS = [{"y": 2026, "id": "2609.37941", "t": "An Efficient Machine Learning Approach for Degradation Forecasting in AEM Water Electrolysis", "a": "Marco Veneriano, Ani Gjergji, Sebastiano Bellani, Andrea Riva, Vito Paolo Pastore, Matteo Santacesaria", "j": ""}, {"y": 2026, "id": "2608.14324", "t": "Analytic inverse problems with finitely many random measurements", "a": "Giovanni S. Alberti, Damiano Poletti, Simone Sanna, Matteo Santacesaria", "j": ""}, {"y": 2026, "id": "2607.27062", "t": "PIKS: Universal Physics-Informed Kernel Methods", "a": "Joachim Bona-Pellissier, Giacomo Meanti, Matteo Santacesaria, Lorenzo Rosasco", "j": ""}, {"y": 2026, "id": "2605.23421", "t": "Stochastic Generalized Sampling", "a": "Luca Finotti, Matteo Santacesaria", "j": ""}, {"y": 2026, "id": "2605.19621", "t": "Diffusion Graph Posterior Sampling for Nonlinear Inverse Problems with Application to Electrical Impedance Tomography", "a": "Giovanni S. Alberti, Damiana Lazzaro, Serena Morigi, Matteo Santacesaria, Shibo Wang", "j": ""}, {"y": 2026, "id": "2603.03196", "t": "Infinite dimensional generative sensing", "a": "Paolo Angella, Vito Paolo Pastore, Matteo Santacesaria", "j": ""}, {"y": 2026, "id": "2602.16906", "t": "Inverse problems for quasi-linear elliptic systems modeling electrolysers", "a": "Giovanni S. Alberti, Wadim Gerner, Matteo Santacesaria", "j": ""}, {"y": 2025, "id": "2509.24710", "t": "MAD: Manifold Attracted Diffusion", "a": "Dennis Elbrächter, Giovanni S. Alberti, Matteo Santacesaria", "j": "International Conference on Machine Learning (ICML), 2026"}, {"y": 2025, "id": "2507.16678", "t": "Deep Unfolding Network for Nonlinear Multi-Frequency Electrical Impedance Tomography", "a": "Giovanni S. Alberti, Damiana Lazzaro, Serena Morigi, Luca Ratti, Matteo Santacesaria", "j": "Journal of Computational Physics 567 (2026), 115293"}, {"y": 2025, "id": "2504.21819", "t": "On spatial systems of cities", "a": "Gianandrea Lanzara, Matteo Santacesaria", "j": ""}, {"y": 2025, "id": "2504.06767", "t": "DIMA: DIffusing Motion Artifacts for unsupervised correction in brain MRI images", "a": "Paolo Angella, Luca Balbi, Fabrizio Ferrando, Paolo Traverso, Rosario Varriale, Vito Paolo Pastore, Matteo Santacesaria", "j": "IEEE Access, 2025"}, {"y": 2025, "id": "2502.21320", "t": "TomoSelfDEQ: Self-Supervised Deep Equilibrium Learning for Sparse-Angle CT Reconstruction", "a": "Tatiana A. Bubba, Matteo Santacesaria, Andrea Sebastiani", "j": "Scale Space and Variational Methods in Computer Vision (SSVM 2025), LNCS 15667, Springer"}, {"y": 2025, "id": "2502.01418", "t": "Assessing the use of Diffusion models for motion artifact correction in brain MRI", "a": "Paolo Angella, Vito Paolo Pastore, Matteo Santacesaria", "j": ""}, {"y": 2025, "id": "2501.01929", "t": "Compressed sensing for inverse problems II: applications to deconvolution, source recovery, and MRI", "a": "Giovanni S. Alberti, Alessandro Felisi, Matteo Santacesaria, S. Ivan Trapasso", "j": ""}, {"y": 2024, "id": "2412.16031", "t": "Learning sparsity-promoting regularizers for linear inverse problems", "a": "Giovanni S. Alberti, Ernesto De Vito, Tapio Helin, Matti Lassas, Luca Ratti, Matteo Santacesaria", "j": "SIAM Journal on Mathematics of Data Science 8(1) (2026), 167–199"}, {"y": 2024, "id": "2403.01470", "t": "Is in-domain data beneficial in transfer learning for landmarks detection in x-ray images?", "a": "Roberto Di Via, Matteo Santacesaria, Francesca Odone, Vito Paolo Pastore", "j": "IEEE International Symposium on Biomedical Imaging (ISBI), 2024"}, {"y": 2024, "id": "2402.00737", "t": "Localization of point scatterers via sparse optimization on measures", "a": "Giovanni S. Alberti, Romain Petit, Matteo Santacesaria", "j": "SIAM Journal on Imaging Sciences 17(3) (2024), 1619–1649"}, {"y": 2024, "id": "2401.16612", "t": "Learning a Gaussian Mixture for Sparsity Regularization in Inverse Problems", "a": "Giovanni S. Alberti, Luca Ratti, Matteo Santacesaria, Silvia Sciutto", "j": "IMA Journal of Numerical Analysis, 2025"}, {"y": 2023, "id": "2303.15244", "t": "Manifold Learning by Mixture Models of VAEs for Inverse Problems", "a": "Giovanni S. Alberti, Johannes Hertrich, Matteo Santacesaria, Silvia Sciutto", "j": "Journal of Machine Learning Research 25(202) (2024), 1–35"}, {"y": 2023, "id": "2302.03577", "t": "Compressed sensing for inverse problems and the sample complexity of the sparse Radon transform", "a": "Giovanni S. Alberti, Alessandro Felisi, Matteo Santacesaria, S. Ivan Trapasso", "j": "Journal of the European Mathematical Society, 2025"}, {"y": 2022, "id": "2205.14627", "t": "Continuous Generative Neural Networks: A Wavelet-Based Architecture in Function Spaces", "a": "Giovanni S. Alberti, Matteo Santacesaria, Silvia Sciutto", "j": "Numerical Functional Analysis and Optimization 46(1) (2024), 1–44"}, {"y": 2021, "id": "2110.15849", "t": "Market Areas in General Equilibrium", "a": "Gianandrea Lanzara, Matteo Santacesaria", "j": "Journal of Economic Theory, 2023, 105675"}, {"y": 2021, "id": "2106.06513", "t": "Learning the optimal Tikhonov regularizer for inverse problems", "a": "Giovanni S. Alberti, Ernesto De Vito, Matti Lassas, Luca Ratti, Matteo Santacesaria", "j": "Advances in Neural Information Processing Systems (NeurIPS) 34, 2021"}, {"y": 2020, "id": "2011.02852", "t": "Neural networks for classification of strokes in electrical impedance tomography on a 3D head model", "a": "Valentina Candiani, Matteo Santacesaria", "j": "Mathematics in Engineering 4(4) (2022), 1–22"}, {"y": 2020, "id": "2010.08388", "t": "Compressed sensing photoacoustic tomography reduces to compressed sensing for undersampled Fourier measurements", "a": "Giovanni S. Alberti, Paolo Campodonico, Matteo Santacesaria", "j": "SIAM Journal on Imaging Sciences 14(3) (2021), 1039–1077"}, {"y": 2020, "id": "2009.00574", "t": "Inverse problems on low-dimensional manifolds", "a": "Giovanni S. Alberti, Ángel Arroyo, Matteo Santacesaria", "j": "Nonlinearity 36(1) (2023), 734–808"}, {"y": 2020, "id": "2004.06546", "t": "Classification of stroke using Neural Networks in Electrical Impedance Tomography", "a": "Juan Pablo Agnelli, Aynur Çöl, Matti Lassas, Rashmi Murthy, Matteo Santacesaria, Samuli Siltanen", "j": "Inverse Problems 36 (2020), 115008"}, {"y": 2020, "id": "2001.10950", "t": "Calderón's Inverse Problem with a Finite Number of Measurements II: Independent Data", "a": "Giovanni S. Alberti, Matteo Santacesaria", "j": "Applicable Analysis, 2020"}, {"y": 2019, "id": "1909.08002", "t": "On an inverse Robin spectral problem", "a": "Matteo Santacesaria, Toshiaki Yachimura", "j": "Inverse Problems 36 (2020), 075004"}, {"y": 2019, "id": "1906.10028", "t": "Infinite-dimensional inverse problems with finite measurements", "a": "Giovanni S. Alberti, Matteo Santacesaria", "j": "Archive for Rational Mechanics and Analysis, 2021"}, {"y": 2018, "id": "1803.06931", "t": "Note on Calderón's inverse problem for measurable conductivities", "a": "Matteo Santacesaria", "j": "Inverse Problems & Imaging 13(1) (2019), 149–157"}, {"y": 2018, "id": "1803.04224", "t": "Calderón's Inverse Problem with a Finite Number of Measurements", "a": "Giovanni S. Alberti, Matteo Santacesaria", "j": "Forum of Mathematics, Sigma 7 (2019), e35"}, {"y": 2017, "id": "1710.11093", "t": "Infinite dimensional compressed sensing from anisotropic measurements and applications to inverse problems in PDE", "a": "Giovanni S. Alberti, Matteo Santacesaria", "j": "Applied and Computational Harmonic Analysis 50 (2021), 105–146"}, {"y": 2017, "id": "1707.08413", "t": "Reconstruction of a piecewise constant conductivity on a polygonal partition via shape optimization in EIT", "a": "Elena Beretta, Stefano Micheletti, Simona Perotto, Matteo Santacesaria", "j": "Journal of Computational Physics 353 (2018), 264–280"}, {"y": 2016, "id": "1610.01721", "t": "Propagation and recovery of singularities in the inverse conductivity problem", "a": "Allan Greenleaf, Matti Lassas, Matteo Santacesaria, Samuli Siltanen, Gunther Uhlmann", "j": "Analysis & PDE 11 (2018), 1901–1943"}, {"y": 2016, "id": "1605.01309", "t": "Direct inversion from partial-boundary data in electrical impedance tomography", "a": "Andreas Hauptmann, Matteo Santacesaria, Samuli Siltanen", "j": "Inverse Problems 33(2) (2017), 025009"}, {"y": 2013, "id": "1307.2037", "t": "Positive-energy D-bar method for acoustic tomography: a computational study", "a": "Maarten de Hoop, Matti Lassas, Matteo Santacesaria, Samuli Siltanen, Janne P. Tamminen", "j": "Inverse Problems 32(2) (2016), 025003"}, {"y": 2013, "id": "1306.0763", "t": "A Hölder-logarithmic stability estimate for an inverse problem in two dimensions", "a": "Matteo Santacesaria", "j": ""}, {"y": 2012, "id": "1204.4610", "t": "Stability estimates for an inverse problem for the Schrödinger equation at negative energy in two dimensions", "a": "Matteo Santacesaria", "j": "Applicable Analysis 92(8) (2013), 1666–1681"}, {"y": 2011, "id": "1110.0335", "t": "New global stability estimates for the Calderón problem in two dimensions", "a": "Matteo Santacesaria", "j": "Journal of the Institute of Mathematics of Jussieu 12(3) (2013), 553–569"}, {"y": 2011, "id": "1105.4086", "t": "Monochromatic reconstruction algorithms for two-dimensional multi-channel inverse problems", "a": "Roman Novikov, Matteo Santacesaria", "j": "International Mathematics Research Notices 2013(6), 1205–1229"}, {"y": 2011, "id": "1102.5175", "t": "Global stability for the multi-channel Gel'fand-Calderón inverse problem in two dimensions", "a": "Matteo Santacesaria", "j": "Bulletin des Sciences Mathématiques 136(7) (2012), 731–744"}, {"y": 2010, "id": "1012.4667", "t": "Global uniqueness and reconstruction for the multi-channel Gel'fand-Calderón inverse problem in two dimensions", "a": "Roman Novikov, Matteo Santacesaria", "j": "Bulletin des Sciences Mathématiques 135(5) (2011), 421–434"}, {"y": 2010, "id": "1008.4888", "t": "A global stability estimate for the Gel'fand-Calderón inverse problem in two dimensions", "a": "Roman Novikov, Matteo Santacesaria", "j": "Journal of Inverse and Ill-Posed Problems 18 (2010), 765–785"}, {"y": 2010, "id": "1006.0647", "t": "Gel'fand-Calderón's inverse problem for anisotropic conductivities on bordered surfaces in ℝ³", "a": "Gennadi Henkin, Matteo Santacesaria", "j": "International Mathematics Research Notices 2012(4), 781–809"}, {"y": 2010, "id": "1003.1880", "t": "On an inverse problem for anisotropic conductivity in the plane", "a": "Gennadi Henkin, Matteo Santacesaria", "j": "Inverse Problems 26 (2010), 095011"}];
+const ME = "Matteo Santacesaria";
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let filter = "all";
+function render(){
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const list = PUBS.filter(p => {
+    if (filter === "pub" && !p.j) return false;
+    if (filter === "pre" && p.j) return false;
+    return !q || (p.t + " " + p.a + " " + p.j).toLowerCase().includes(q);
+  });
+  let html = "", y = null;
+  for (const p of list){
+    if (p.y !== y){ y = p.y; html += `<div class="year">${y}</div>`; }
+    const authors = esc(p.a).replace(ME, `<b>${ME}</b>`);
+    html += `<div class="pub"><div class="t">${esc(p.t)}</div><div class="a">${authors}</div>`
+          + `<div>${p.j ? `<span class="j">${esc(p.j)}</span>` : `<span class="j pre">Preprint</span>`}`
+          + `<a class="l" href="https://arxiv.org/abs/${p.id}">arXiv:${p.id}</a></div></div>`;
+  }
+  document.getElementById("publist").innerHTML = html || "<p class='count'>No matches.</p>";
+  document.getElementById("count").textContent = `${list.length} of ${PUBS.length} papers`;
+}
+document.getElementById("q").addEventListener("input", render);
+document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+  filter = b.dataset.f;
+  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b));
+  render();
+}));
+render();
+// assemble the address in the browser to keep it away from scrapers
+const m = ["matteo.santacesaria", "unige.it"].join("@");
+const a = document.getElementById("mail"); a.href = "mailto:" + m; a.textContent = m;
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
